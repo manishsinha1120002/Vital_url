@@ -1,0 +1,41 @@
+<!-- Modal -->
+<mat-dialog-content>
+    <div class="form-wrapper">
+      <div class="form__header">
+        <h2>Signup</h2>
+        <p>Lorem Ipsum is simply dummy text.</p>
+      </div>
+      <div class="form__body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput id="email" formControlName="email" />
+                        <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                          Enter a valid email.
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+                <div class="col-12">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput id="password" type="password" formControlName="password" />
+                        <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                          Password must be at least 6 characters.
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+                <div class="col-12">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Sign Up</button>
+
+                </div>
+            </div>
+        </form>
+
+        <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+        <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <!-- Modal End -->
