@@ -27,7 +27,7 @@ export class LoginComponent {
   successMessage: string = '';
   errorMessage: string = '';
   constructor( private fb: FormBuilder,
-    //  public _commonService: CommonServicesService
+     public _commonService: CommonServicesService
     ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -42,16 +42,16 @@ export class LoginComponent {
         emai: this.loginForm.controls['email'].value,
         pass: this.loginForm.controls["password"].value
       }
-      // this._commonService
-      //   .api(body, `/login`, 200, 'post')
-      //   .subscribe((res) => {
-      //     if (res.is_error == 0) {
-      //       this._commonService.customPopups('Login successful!',0);
-      //       localStorage.setItem('token', res.token);
-      //     } else if (res.is_error == 1) {
-      //       this._commonService.customPopups('Login failed. Please try again.',1);
-      //     }
-      //   });
+      this._commonService
+        .api(body, `/login`, 200, 'post')
+        .subscribe((res) => {
+          if (res.is_error == 0) {
+            this._commonService.customPopups('Login successful!',0);
+            localStorage.setItem('token', res.token);
+          } else if (res.is_error == 1) {
+            this._commonService.customPopups('Login failed. Please try again.',1);
+          }
+        });
 
 
       

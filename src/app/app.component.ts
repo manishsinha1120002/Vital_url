@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     RouterOutlet, 
     HeaderComponent, 
-    HttpClientModule
+    // RouterModule.forRoot([]),
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

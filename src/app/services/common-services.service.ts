@@ -16,7 +16,7 @@ export class CommonServicesService {
   });
   headersObj: any = new HttpHeaders({}); // this header for Upload API
   public timeoutError: boolean = false;
-  
+
   constructor(
     private toaster: ToastrService,
     private router: Router,
